@@ -1,6 +1,9 @@
 <footer>
   <p>
-    Holaa <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit
+    Go to my <a
+      href="https://www.linkedin.com/in/santiago-meneses-dussan-762578210/"
+      >linkedin</a
+    > to contact me
   </p>
 </footer>
 

@@ -1,63 +1,37 @@
 <script lang="ts">
-  import type { Product } from "../../models/product";
-  import { loading, noProducts } from "../../stores/products";
+  import type { Order } from "../../models/order";
+  import { loading, noOrders } from "../../stores/orders";
   import { createEventDispatcher } from "svelte";
   import Loading from "./Loading.svelte";
 
   //Props
-  export let products: Product[] = [];
+  export let orders: Order[] = [];
 
   //Emits
   const dispatch = createEventDispatcher();
 
-  const productEvent = (_id: string | undefined, type: string) => {
-    dispatch("productEvent", {
+  const orderEvent = (_id: string | undefined, type: string) => {
+    dispatch("orderEvent", {
       _id,
       type,
     });
   };
-
-  const handleGet = () => {};
 </script>
 
-<div class="flex justify-end align-middle mb-2">
-  <button
-    class="bg-white hover:bg-gray-100 py-2 px-4 borde rounded-full font-medium text-black inline-flex items-center shadow gap-1"
-    on:click={() => productEvent(undefined, "create")}
-  >
-    Create
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="size-5"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M12 4.5v15m7.5-7.5h-15"
-      />
-    </svg>
-  </button>
-</div>
-
-{#if products.length === 0 && $loading}
+{#if orders.length === 0 && $loading}
   <Loading />
-{:else if products.length === 0 && $noProducts}
+{:else if orders.length === 0 && $noOrders}
   <div class="flex justify-start items-center">
     <h2 class="w-60 text-start text-2xl sm:text-5xl">
-      You have not created any product yet, you can do it by clicking on the
-      "create" button
+      You have not created any order yet
     </h2>
   </div>
 {:else}
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
   >
-    {#each products as product (product._id)}
-      <div class="relative group bg-white rounded-3xl overflow-hidden shadow">
+    {#each orders as order (order._id)}
+      <!-- <div class="relative group bg-white rounded-3xl overflow-hidden shadow">
         <div class="flex justify-end items-center space-x-1 m-1">
           <button
             type="button"
@@ -123,14 +97,14 @@
 
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full text-sm font-medium"
-                on:click={handleGet}
+                on:click={}
               >
                 Get
               </button>
             </div>
           {/if}
         </div>
-      </div>
+      </div> -->
     {/each}
   </div>
 {/if}

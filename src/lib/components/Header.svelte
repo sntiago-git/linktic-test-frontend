@@ -4,7 +4,7 @@
   import github from "$lib/images/github.svg";
 </script>
 
-<header class="flex justify-between items-center px-4">
+<header class="hidden sm:flex justify-between items-center px-4">
   <div class="corner flex justify-center items-center">
     <img src={logo} alt="SvelteKit" />
     <span class="title pl-1">Linktic Test</span>
