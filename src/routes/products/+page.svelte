@@ -120,7 +120,7 @@
 </svelte:head>
 
 <section>
-  <h1 class="font-bold my-10 text-left">Shop Products</h1>
+  <h1 class="font-bold mb-10 mt-4 text-left">Shop Products</h1>
   <ProductGrid products={$products} on:productEvent={handleProductEvent} />
 
   <Modal show={showModal} close={() => closeModal("product")}>
@@ -172,12 +172,12 @@
 
         <div>
           <label for="imageUrl" class="block text-sm font-medium"
-            >Image Url</label
-          >
+            >Image Url
+          </label>
           <input
             id="imageUrl"
             type="text"
-            placeholder="https://example.com"
+            placeholder="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-card-40-pro-202405?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1713920820026"
             bind:value={newProduct.imageUrl}
             class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm sm:text-sm"
           />
@@ -225,6 +225,13 @@
         >
       </div>
     </form>
+    <small class="text-red-600 mt-5">
+      Se recomienda usar la siguiente Imagen URL para pruebas:
+    </small>
+    <br />
+    <small class="text-red-600">
+      https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-card-40-pro-202405?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1713920820026
+    </small>
   </Modal>
 
   <Modal

@@ -18,7 +18,7 @@
   };
 </script>
 
-{#if orders.length === 0 && $loading}
+{#if $loading}
   <Loading />
 {:else if orders.length === 0 && $noOrders}
   <div class="flex justify-start items-center">
@@ -31,12 +31,12 @@
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
   >
     {#each orders as order (order._id)}
-      <!-- <div class="relative group bg-white rounded-3xl overflow-hidden shadow">
-        <div class="flex justify-end items-center space-x-1 m-1">
+      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+        <div class="flex justify-end items-center space-x-1">
           <button
             type="button"
             class="hover:bg-gray-100 font-medium rounded-full text-sm p-2 text-center inline-flex items-center"
-            on:click={() => productEvent(product._id, "remove")}
+            on:click={() => orderEvent(order._id, "remove")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,57 +54,30 @@
             </svg>
             <span class="sr-only">Remove</span>
           </button>
-
-          <button
-            type="button"
-            class="hover:bg-gray-100 font-medium rounded-full text-sm p-2 text-center inline-flex items-center"
-            on:click={() => productEvent(product._id, "update")}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
-              />
-            </svg>
-            <span class="sr-only">Update</span>
-          </button>
         </div>
 
-        <img
-          src={product.imageUrl}
-          alt={product.name}
-          class="w-full h-64 object-cover object-center"
-        />
-
-        <div class="p-4">
-          <small class="pb-2">#{product.sku}</small>
-          <h3 class="text-xl font-bold">{product.name}</h3>
-          <p>{product.description}</p>
-
-          {#if product.stock <= 0}
-            <h3 class="font-bold my-2">Out of stock</h3>
-          {:else}
-            <div class="flex justify-between items-center">
-              <p class="my-2 block">${product.price.toFixed(2)}</p>
-
-              <button
-                class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full text-sm font-medium"
-                on:click={}
-              >
-                Get
-              </button>
-            </div>
-          {/if}
+        <h3 class="mb-2">
+          <span class="font-bold">Order Number:</span>
+          {order._id}
+        </h3>
+        <!-- <p class="mb-1"><strong>Customer Name:</strong> {order.customerName}</p>
+        <p class="mb-1">
+          <strong>Customer Email:</strong>
+          {order.customerEmail}
+        </p> -->
+        <p class="mb-2">
+          <span class="font-bold mb-2">Total Amount:</span>
+          ${order.totalAmount.toFixed(2)}
+        </p>
+        <div>
+          <h4 class="font-bold mb-2">Products:</h4>
+          <ul class="list-disc list-inside">
+            {#each order.products as { product, quantity }}
+              <li>{product.name} - Quantity: {quantity}</li>
+            {/each}
+          </ul>
         </div>
-      </div> -->
+      </div>
     {/each}
   </div>
 {/if}

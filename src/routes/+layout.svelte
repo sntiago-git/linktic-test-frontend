@@ -1,13 +1,15 @@
 <script>
   import Footer from "../lib/components/Footer.svelte";
   import Header from "../lib/components/Header.svelte";
+  import ProductsSideBar from "$lib/components/ProductsSideBar.svelte";
   import "../styles/global.css";
 </script>
 
 <div class="app">
   <Header />
 
-  <main>
+  <main class="sm:mt-16">
+    <ProductsSideBar/>
     <slot />
   </main>
 
@@ -28,7 +30,9 @@
     padding: 1rem;
     width: 100%;
     max-width: 1366px;
-    margin: 60px auto auto auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
     box-sizing: border-box;
   }
 </style>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Product } from "../../models/product";
   import { loading, noProducts } from "../../stores/products";
+  import { cartStore, isOpen } from "../../stores/cart";
   import { createEventDispatcher } from "svelte";
   import Loading from "./Loading.svelte";
 
@@ -17,7 +18,10 @@
     });
   };
 
-  const handleGet = () => {};
+  const addToCart = (product: Product) => {
+    cartStore.add(product);
+    $isOpen = true;
+  };
 </script>
 
 <div class="flex justify-end align-middle mb-2">
@@ -42,8 +46,8 @@
     </svg>
   </button>
 </div>
-
-{#if products.length === 0 && $loading}
+  
+{#if $loading}
   <Loading />
 {:else if products.length === 0 && $noProducts}
   <div class="flex justify-start items-center">
@@ -123,7 +127,7 @@
 
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full text-sm font-medium"
-                on:click={handleGet}
+                on:click={() => addToCart(product)}
               >
                 Get
               </button>

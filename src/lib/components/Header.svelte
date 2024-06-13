@@ -4,7 +4,38 @@
   import github from "$lib/images/github.svg";
 </script>
 
-<header class="hidden sm:flex justify-between items-center px-4">
+<header
+  class="flex sm:hidden flex-col h-40 sm:fixed sm:h-16 sm:flex-row justify-between items-center px-4"
+>
+  <div class=" corner flex justify-center items-center">
+    <img src={logo} alt="SvelteKit" />
+    <span class="title pl-1">Linktic Test</span>
+  </div>
+
+  <nav>
+    <ul>
+      <li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
+        <a href="/">Home</a>
+      </li>
+      <li
+        aria-current={$page.url.pathname === "/products" ? "page" : undefined}
+      >
+        <a href="/products">Products</a>
+      </li>
+      <li aria-current={$page.url.pathname === "/orders" ? "page" : undefined}>
+        <a href="/orders">Orders</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="corner flex justify-center items-center">
+    <a href="https://github.com/sntiago-git/linktic-test-frontend">
+      <img src={github} alt="GitHub" />
+    </a>
+  </div>
+</header>
+
+<header class="hidden sm:flex header-sm h-16 justify-between items-center px-4">
   <div class="corner flex justify-center items-center">
     <img src={logo} alt="SvelteKit" />
     <span class="title pl-1">Linktic Test</span>
@@ -34,17 +65,12 @@
 </header>
 
 <style>
-  header {
+  .header-sm {
     position: fixed;
     top: 0;
-    height: 60px;
     width: 100%;
-    background-color: hsl(
-      0,
-      0%,
-      95%
-    ); /* Puedes cambiar el color de fondo según tu diseño */
-    z-index: 1000; /* Asegura que el header esté siempre encima de otros elementos */
+    background-color: hsl(0, 0%, 95%);
+    z-index: 1000;
   }
 
   .title {
