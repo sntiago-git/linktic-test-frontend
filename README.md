@@ -1,7 +1,38 @@
-# create-svelte
+# SvelteKit TypeScript TailwindCss Frontend
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Esta es una interfaz de usuario construida con SvelteKit, TypeScript y TailwindCss que proporciona gestión de productos y pedidos, incluyendo operaciones CRUD y un carrito de compras.
+Cuenta con conexión a API. Para eso debes clonar y correr el siguiente repositorio: [`Backend Linktic Test`](https://github.com/sntiago-git/linktic-test-backend).  
 
+## Características
+
+- Gestión de productos: listar, crear, actualizar y eliminar productos.
+- Gestión de pedidos: listar, crear y eliminar pedidos.
+- Conexión a API mediante REST.
+- Seguridad mejorada utilizando variables de entorno para datos sensibles.
+- Tipado estático con TypeScript.
+- Protección CORS
+
+## Requisitos
+
+- Svelte
+- Node.js (v14 o superior)
+- npm (v6 o superior) o yarn
+- TailwindCss
+
+## Recomendaciones
+
+- Svelte
+- Node.js (v14 o superior)
+- npm (v6 o superior) o yarn
+- TailwindCss
+
+## Variables de entorno
+Crea un archivo .env en la raíz del proyecto y define las variables de entorno necesarias:
+
+  ```plaintext
+    VITE_API_URL = tu_api_url (La url donde esta corriendo tu backend, por defecto es http://localhost:3000)
+  ```
+  
 ## Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
