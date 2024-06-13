@@ -4,15 +4,13 @@
   import github from "$lib/images/github.svg";
 </script>
 
-<header>
-  <div class="corner">
+<header class="flex justify-between items-center px-4">
+  <div class="corner flex justify-center items-center">
     <img src={logo} alt="SvelteKit" />
+    <span class="title pl-1">Linktic Test</span>
   </div>
 
   <nav>
-    <svg viewBox="0 0 2 3" aria-hidden="true">
-      <path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-    </svg>
     <ul>
       <li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
         <a href="/">Home</a>
@@ -22,18 +20,13 @@
       >
         <a href="/products">Products</a>
       </li>
-      <li
-        aria-current={$page.url.pathname === "/orders" ? "page" : undefined}
-      >
+      <li aria-current={$page.url.pathname === "/orders" ? "page" : undefined}>
         <a href="/orders">Orders</a>
       </li>
     </ul>
-    <svg viewBox="0 0 2 3" aria-hidden="true">
-      <path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-    </svg>
   </nav>
 
-  <div class="corner">
+  <div class="corner flex justify-center items-center">
     <a href="https://github.com/sntiago-git/linktic-test-frontend">
       <img src={github} alt="GitHub" />
     </a>
@@ -42,20 +35,26 @@
 
 <style>
   header {
-    display: flex;
-    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    background-color: hsl(
+      0,
+      0%,
+      95%
+    ); /* Puedes cambiar el color de fondo según tu diseño */
+    z-index: 1000; /* Asegura que el header esté siempre encima de otros elementos */
+  }
+
+  .title {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 700;
   }
 
   .corner {
-    width: 3em;
-    height: 3em;
-  }
-
-  .corner a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    width: 9em;
     height: 100%;
   }
 
@@ -68,17 +67,6 @@
   nav {
     display: flex;
     justify-content: center;
-    --background: rgba(255, 255, 255, 0.7);
-  }
-
-  svg {
-    width: 2em;
-    height: 3em;
-    display: block;
-  }
-
-  path {
-    fill: var(--background);
   }
 
   ul {
@@ -90,7 +78,6 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-    background: var(--background);
     background-size: contain;
   }
 
@@ -99,33 +86,25 @@
     height: 100%;
   }
 
-  li[aria-current="page"]::before {
-    --size: 6px;
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 0;
-    left: calc(50% - var(--size));
-    border: var(--size) solid transparent;
-    border-top: var(--size) solid var(--color-theme-1);
+  li[aria-current="page"] a {
+    color: var(--color-black);
+    font-weight: 700;
   }
 
   nav a {
     display: flex;
     height: 100%;
     align-items: center;
-    padding: 0 0.5rem;
+    padding: 0 1rem;
     color: var(--color-text);
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: capitalize;
     text-decoration: none;
     transition: color 0.2s linear;
   }
 
   a:hover {
-    color: var(--color-theme-1);
+    color: var(--color-black);
   }
 </style>
