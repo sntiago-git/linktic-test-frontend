@@ -21,49 +21,59 @@ Cuenta con conexión a API. Para eso debes clonar y correr el siguiente reposito
 
 ## Recomendaciones
 
-- Svelte
-- Node.js (v14 o superior)
-- npm (v6 o superior) o yarn
-- TailwindCss
+Recomiendo usar las siguientes url de imágenes a la hora de crear un producto, esto para que cada producto se vea más estético y bonito.
+```plaintext
+https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-card-40-pro-202405?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1713920820026
+https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-card-40-air-202405?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1713920820139
+https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-card-40-ipad-202405?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1714596612326
+https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-card-40-ipad-mini-202109?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1674662574477
+```
 
-## Variables de entorno
-Crea un archivo .env en la raíz del proyecto y define las variables de entorno necesarias:
+## Instalación
 
-  ```plaintext
+Sigue estos pasos para clonar y configurar el proyecto localmente:
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/sntiago-git/linktic-test-frontend.git
+   cd linktic-test-frontend
+
+2. Instala las dependencias del proyecto:
+
+    ```bash
+    npm install
+    ```
+    
+    o si usas yarn:
+   
+    ```bash
+    yarn install
+    ```
+    
+3. Crea un archivo .env en la raíz del proyecto y define las variables de entorno necesarias:
+
+    ```plaintext
     VITE_API_URL = tu_api_url (La url donde esta corriendo tu backend, por defecto es http://localhost:3000)
-  ```
-  
-## Creating a project
+    ```
 
-If you're seeing this, you've probably already done this step. Congrats!
+4. Ejecuta el servidor en modo de desarrollo:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+    ```bash
+    npm run dev
+    ```
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+    o si usas yarn:
 
-## Developing
+    ```bash
+    yarn dev
+    ```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Scripts Disponibles
 
-```bash
-npm run dev
+- npm run build o yarn build: Compila el código TypeScript a JavaScript.
+- npm run dev o yarn dev: Ejecuta el servidor en modo de desarrollo.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Contribución
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Si deseas contribuir a este proyecto, por favor abre un issue o envía un pull request con tus cambios.
