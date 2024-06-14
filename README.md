@@ -1,16 +1,18 @@
 # SvelteKit TypeScript TailwindCss Frontend
 
 Esta es una interfaz de usuario construida con SvelteKit, TypeScript y TailwindCss que proporciona gestión de productos y pedidos, incluyendo operaciones CRUD y un carrito de compras.
-Cuenta con conexión a API. Para eso debes instalar y correr el siguiente repositorio: [`Backend Linktic Test`](https://github.com/sntiago-git/linktic-test-backend).  
+Para probar el proyecto de forma local debes instalar y correr el repositorio de su API: [`Backend Linktic Test`](https://github.com/sntiago-git/linktic-test-backend).  
 
 ## Características
 
-- Gestión de productos: listar, crear, actualizar y eliminar productos.
+- Gestión de productos: listar, crear, actualizar y remover productos.
 - Gestión de pedidos: listar, crear y eliminar pedidos.
 - Conexión a API mediante REST.
 - Seguridad mejorada utilizando variables de entorno para datos sensibles.
 - Tipado estático con TypeScript.
-- Protección CORS
+- Diseño responsivo.
+- Protección CORS.
+- Despliegue usando Vercel. 
 
 ## Requisitos
 
@@ -18,6 +20,11 @@ Cuenta con conexión a API. Para eso debes instalar y correr el siguiente reposi
 - Node.js (v14 o superior)
 - npm (v6 o superior) o yarn
 - TailwindCss
+
+## Despliegue
+Este frontend está desplegado usando Vercel. Puedes acceder a la aplicación en la siguiente URL:
+
+[https://linktic-test-frontend.vercel.app/](https://linktic-test-frontend.vercel.app/)
 
 ## Recomendaciones
 
@@ -54,7 +61,7 @@ Sigue estos pasos para clonar y configurar el proyecto localmente:
 3. Crea un archivo .env en la raíz del proyecto y define las variables de entorno necesarias:
 
     ```plaintext
-    VITE_API_URL = tu_api_url (La url donde esta corriendo tu backend, por defecto es http://localhost:3000)
+    VITE_API_URL = tu_api_url (La url donde está corriendo tu backend)
     ```
 
 4. Ejecuta el servidor en modo de desarrollo:
